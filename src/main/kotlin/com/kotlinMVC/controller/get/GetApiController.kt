@@ -18,7 +18,7 @@ class GetApiController {
     }
 
     // HTTP 메소드와 별개로 호출 메소드에 종속된다.
-    @RequestMapping(method = [RequestMethod.GET], path = ["request-mapping"])
+    @RequestMapping(method = [RequestMethod.GET], path = ["/request-mapping"])
     fun requestMapping(): String {
         return "request-mapping";
     }
