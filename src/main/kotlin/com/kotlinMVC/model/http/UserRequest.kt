@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy
 import com.fasterxml.jackson.databind.annotation.JsonNaming
 
 // class에 타입을 지정, 그런데 곧 Deprecated...?
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
+//@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
 data class UserRequest(
     var name:String?=null,
     var age:Int?=null,
