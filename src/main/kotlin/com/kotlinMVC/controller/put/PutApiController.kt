@@ -3,11 +3,12 @@ package com.kotlinMVC.controller.put
 import com.kotlinMVC.model.http.Result
 import com.kotlinMVC.model.http.UserRequest
 import com.kotlinMVC.model.http.UserResponse
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.RestController
+import jakarta.validation.Valid
+import org.springframework.http.ResponseEntity
+import org.springframework.validation.BindingResult
+import org.springframework.validation.FieldError
+import org.springframework.web.bind.annotation.*
+import java.lang.StringBuilder
 
 @RestController
 @RequestMapping("/api")
@@ -24,7 +25,23 @@ class PutApiController {
     }
 
     @PutMapping(path = ["/put-mapping/object"])
-    fun putMappingObject(@RequestBody userRequest: UserRequest): UserResponse {
+    fun putMappingObject(
+        @Valid  // validation catch
+        @RequestBody userRequest: UserRequest,
+        bindingResult: BindingResult
+    ): Any {
+
+        if (bindingResult.hasErrors()) {
+            // 500 Error
+            val msg = StringBuilder()
+            bindingResult.allErrors.forEach {
+                val field = it as FieldError
+                val message = it.defaultMessage
+                // field내에 field 값을 불러옴
+                msg.append("${field.field}: $message \n")
+            }
+            return ResponseEntity.internalServerError().body(msg.toString())
+        }
 
         // user-response
         // apply-pattern
