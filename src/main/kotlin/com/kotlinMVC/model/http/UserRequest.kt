@@ -14,7 +14,7 @@ data class UserRequest(
     @field:Size(min = 2, max = 8, message = "이름은 2 이상, 8 이하")
     var name:String ?= null,
 
-    @field:PositiveOrZero // 0 < 숫자를 검증 0도 포함 (양수)
+    @field:PositiveOrZero // 0 이상, 숫자를 검증 0도 포함 (양수)
     var age:Int ?= null,
 
     @field:Email    // email 양식
