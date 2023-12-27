@@ -64,14 +64,14 @@ class PutApiController {
                 this.age = 10
                 this.email = "test@test.com"
                 this.address = "seoul"
-                this.phoneNumber = "010-2463-2396"
+                this.phoneNumber = "010-3735-2396"
             })
             userList.add(UserRequest().apply {
                 this.name = "a"
                 this.age = 10
                 this.email = "test@test.com"
                 this.address = "seoul"
-                this.phoneNumber = "010-2463-2396"
+                this.phoneNumber = "010-3735-2396"
             })
             this.user = userList
         }
