@@ -3,7 +3,6 @@ package com.kotlinMVC.validator
 import com.kotlinMVC.annotation.StringFormatDateTime
 import jakarta.validation.ConstraintValidator
 import jakarta.validation.ConstraintValidatorContext
-import java.lang.Exception
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
