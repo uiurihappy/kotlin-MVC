@@ -2,9 +2,6 @@ package com.kotlinMVC.model.http
 
 import com.kotlinMVC.annotation.StringFormatDateTime
 import jakarta.validation.constraints.*
-import java.lang.Exception
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 // class에 타입을 지정, 그런데 곧 Deprecated...?
 //@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
