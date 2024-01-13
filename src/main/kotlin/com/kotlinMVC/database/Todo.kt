@@ -1,6 +1,8 @@
 package com.kotlinMVC.database
 
+import com.kotlinMVC.model.http.TodoDto
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 data class Todo (
     var index: Int ?= null,
@@ -10,3 +12,15 @@ data class Todo (
     var createdAt: LocalDateTime ?= null,
     var updatedAt: LocalDateTime ?= null
 )
+
+// 확장 함수
+fun Todo.convertTodo(todoDto: TodoDto): Todo {
+    return Todo().apply {
+        this.index = todoDto.index
+        this.title = todoDto.title
+        this.description = todoDto.description
+        this.schedule = LocalDateTime.parse(todoDto.schedule, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+        this.createdAt = todoDto.createdAt
+        this.updatedAt = todoDto.updatedAt
+    }
+}
