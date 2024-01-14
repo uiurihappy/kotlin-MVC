@@ -20,7 +20,8 @@ class StringFormatDateTimeValidator : ConstraintValidator<StringFormatDateTime, 
         // 비정상: false
 
         return try {
-            LocalDateTime.parse(value, DateTimeFormatter.ofPattern(pattern))
+//            LocalDateTime.parse(value, DateTimeFormatter.ofPattern(pattern))
+            LocalDateTime.parse(value, pattern?.let { DateTimeFormatter.ofPattern(it) })
             true
         } catch (e: Exception) {
             false
